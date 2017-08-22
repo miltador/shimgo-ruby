@@ -1,0 +1,26 @@
+= shimgo-ruby
+
+Ruby backend for a https://github.com/tychoish/shimgo[shimgo]
+
+== About
+
+Provides a simple API written in `sinatra` for converting `asciidoctor` into HTML.
+
+=== API
+
+* *GET /* - status information
+
+* *GET /support/:format* - returns 'supported\n' if format is supported
++
+Supported formats:
++
+** asciidoctor
+
+* *POST /asciidoctor* - expects the body to be a `asciidoctor` content
+to be converted into HTML. Returns JSON object with the following properties:
+** _info_ - empty if no errors, else - string with errors
+** _content_ - converted output
+
+=== Thanks
+
+* @tychoish for providing his initial Python API that was replicated by me in Ruby
