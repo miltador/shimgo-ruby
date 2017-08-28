@@ -61,7 +61,8 @@ post '/asciidoctor' do
   captured_output = capture_stderr do
     content = Asciidoctor.convert request.body.read,
                                   header_footer: false,
-                                  safe: Asciidoctor::SafeMode::SAFE
+                                  safe: Asciidoctor::SafeMode::SAFE,
+                                  trace: true
   end
 
   response = { info: if captured_output.nil?
