@@ -48,8 +48,9 @@ end
 get '/support/:format' do
   content_type('text/plain')
   if params['format'] == 'asciidoctor'
-    return 'supported\n'
+    return "supported\n"
   else
+    status 400
     return "#{params['format']} is not supported\n"
   end
 end
