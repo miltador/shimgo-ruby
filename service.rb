@@ -33,11 +33,11 @@ ensure
   $stderr = previous_stderr
 end
 
-enable :quiet, :lock
-disable :logging, :threaded
+enable :quiet
+disable :logging
 set :environment, :production
 set :bind, 'localhost'
-set :port, 1515
+set :port, ARGV[0]
 
 get '/' do
   response = { status: 'running', asciidoctor: adoctor_supported }
